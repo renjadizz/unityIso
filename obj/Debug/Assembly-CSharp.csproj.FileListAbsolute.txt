@@ -1,0 +1,2 @@
+C:\Users\Wafu\Downloads\Iso2D\Iso2D\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Wafu\Downloads\Iso2D\Iso2D\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
