@@ -1871,6 +1871,7 @@ GameObject:
   - component: {fileID: 936205084}
   - component: {fileID: 936205083}
   - component: {fileID: 936205082}
+  - component: {fileID: 936205085}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1892,6 +1893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjectPool: {fileID: 488570903}
   respawnTime: 5
+  stageIsCleared: {fileID: 11400000, guid: 13432fcd1810e9642bf8c6cc3db7f51d, type: 2}
 --- !u!212 &936205083
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1957,6 +1959,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &936205085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936205081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d00df13f032a343bb198d0b355bff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 97c5678f55a1a6a4d9bfa0c179741181, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 936205082}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: EnemyDeathCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1250482536
 GameObject:
   m_ObjectHideFlags: 0
@@ -9902,6 +9932,7 @@ GameObject:
   - component: {fileID: 2029715441}
   - component: {fileID: 2029715440}
   - component: {fileID: 2029715439}
+  - component: {fileID: 2029715442}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -9963,6 +9994,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029715442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029715438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d00df13f032a343bb198d0b355bff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 13432fcd1810e9642bf8c6cc3db7f51d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2029715440}
+        m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5761358131341040788
 PrefabInstance:
   m_ObjectHideFlags: 0

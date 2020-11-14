@@ -8,8 +8,10 @@ public class EnemyScript : MonoBehaviour, ITakeDamage, IGameObjectPooled
     [SerializeField]
     float maxhealth = 100f;
     private GameObjectPool pool;
-   
-   
+
+    [SerializeField]
+    GameEvent enemyDeath = default(GameEvent);
+
 
     float health;
     void Start()
@@ -26,8 +28,10 @@ public class EnemyScript : MonoBehaviour, ITakeDamage, IGameObjectPooled
         if (health <= 0)
         {
             pool.ReturnToPool(this.gameObject);
+            enemyDeath.Raise();
             health = maxhealth;
             healthBar.SetMaxHealth(health);
+            
         }
            
     }

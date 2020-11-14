@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7689548156507124159}
   maxhealth: 100
+  enemyDeath: {fileID: 11400000, guid: 97c5678f55a1a6a4d9bfa0c179741181, type: 2}
 --- !u!114 &7689548156189819432
 MonoBehaviour:
   m_ObjectHideFlags: 0

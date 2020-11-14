@@ -9,8 +9,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float respawnTime = 5f;
     private float nextSpawnTime;
-   
-    // Update is called once per frame
+    private int enemyDeath = 0;
+
+    [SerializeField]
+    GameEvent stageIsCleared = default(GameEvent);
     void Update()
     {
         if(Time.time >= nextSpawnTime)
@@ -22,5 +24,14 @@ public class EnemySpawner : MonoBehaviour
             newEnemy.SetActive(true);
         }
         
+    }
+
+    public void EnemyDeathCounter()
+    {
+        enemyDeath += 1;
+        if(enemyDeath >= 10)
+        {
+            stageIsCleared.Raise();
+        }
     }
 }
