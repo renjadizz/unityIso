@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Pooling\GameObjectPool.cs" />
     <Compile Include="Assets\Scripts\Pooling\IGameObjectPooled.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\MySceneManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

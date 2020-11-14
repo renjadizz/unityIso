@@ -23,6 +23,8 @@ public class PlayerScript : MonoBehaviour, ITakeDamage
     public FloatVariable Health;
     private float maxHealth = 100f;
     
+    [SerializeField]
+    GameEvent playerDeath = default(GameEvent);
     void Awake()
     {
         animationController = GetComponentInChildren<MovementAnimationController>();
@@ -41,8 +43,9 @@ public class PlayerScript : MonoBehaviour, ITakeDamage
         healthBar.SetHealth(Health.value);
         if (Health.value <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
             Health.value = maxHealth;
+            playerDeath.Raise();
             Destroy(gameObject);
             
         }

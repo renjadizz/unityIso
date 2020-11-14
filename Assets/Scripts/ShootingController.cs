@@ -15,10 +15,13 @@ abstract public class ShootingController : MonoBehaviour
         float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
         skillShotPoint.eulerAngles = new Vector3(0, 0, angle);
         var skillShot = gameObjectPool.Get();
-        skillShot.transform.position = skillShotPoint.position;
-        skillShot.transform.rotation = skillShotPoint.rotation;
-        skillShot.SetActive(true);
-        Physics2D.IgnoreCollision(skillShot.GetComponent<BoxCollider2D>(), GetComponent<CapsuleCollider2D>());
-        skillShot.GetComponent<SkillShot>().Setup(shootDir);
+        if (skillShotPoint != null)
+        {
+            skillShot.transform.position = skillShotPoint.position;
+            skillShot.transform.rotation = skillShotPoint.rotation;
+            skillShot.SetActive(true);
+            Physics2D.IgnoreCollision(skillShot.GetComponent<BoxCollider2D>(), GetComponent<CapsuleCollider2D>());
+            skillShot.GetComponent<SkillShot>().Setup(shootDir);
+        }
     }
 }
