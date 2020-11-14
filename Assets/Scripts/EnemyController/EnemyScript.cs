@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour, ITakeDamage
+public class EnemyScript : MonoBehaviour, ITakeDamage, IGameObjectPooled
 {
     public HealthBar healthBar;
     [SerializeField]
     float maxhealth = 100f;
-
+    private GameObjectPool pool;
+   
+   
 
     float health;
     void Start()
     {
         health = maxhealth;
-        healthBar.SetMaxHealth(maxhealth);
+        healthBar.SetMaxHealth(health);
     }
 
   
@@ -22,6 +24,27 @@ public class EnemyScript : MonoBehaviour, ITakeDamage
         health -= damage;
         healthBar.SetHealth(health);
         if (health <= 0)
-            Destroy(gameObject);
+        {
+            pool.ReturnToPool(this.gameObject);
+            health = maxhealth;
+            healthBar.SetMaxHealth(health);
+        }
+           
     }
-}
+
+    public GameObjectPool Pool
+    {
+        get
+        {
+            return pool;
+        }
+
+        set
+        {
+            if (pool == null)
+            {
+                pool = value;
+            }
+        }
+    }
+ }

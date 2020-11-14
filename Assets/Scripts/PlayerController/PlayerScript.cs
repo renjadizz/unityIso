@@ -42,8 +42,9 @@ public class PlayerScript : MonoBehaviour, ITakeDamage
         if (Health.value <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Destroy(gameObject);
             Health.value = maxHealth;
+            Destroy(gameObject);
+            
         }
     }
 }

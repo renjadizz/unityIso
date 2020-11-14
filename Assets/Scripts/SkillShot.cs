@@ -15,21 +15,7 @@ public class SkillShot : MonoBehaviour, IGameObjectPooled
 
 
     private GameObjectPool pool;
-    public GameObjectPool Pool 
-    { 
-        get
-        { 
-            return pool; 
-        }
-        
-        set
-        {
-            if (pool == null)
-            {
-                pool = value;
-            }
-        }
-    }
+    
    
     public void Setup(Vector3 shootDir)
     {
@@ -56,5 +42,19 @@ public class SkillShot : MonoBehaviour, IGameObjectPooled
         }
 
     }
+    public GameObjectPool Pool
+    {
+        get
+        {
+            return pool;
+        }
 
+        set
+        {
+            if (pool == null)
+            {
+                pool = value;
+            }
+        }
+    }
 }
