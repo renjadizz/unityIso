@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour, ITakeDamage
     public Rigidbody2D rb;
 
     public FloatVariable Health;
-
+    private float maxHealth = 100f;
     
     void Awake()
     {
@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour, ITakeDamage
     }
     void Start()
     {
+        Health.value = maxHealth;
         healthBar.SetMaxHealth(Health.value);
     }
     
@@ -42,7 +43,7 @@ public class PlayerScript : MonoBehaviour, ITakeDamage
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Destroy(gameObject);
-            Health.value = 100f;
+            Health.value = maxHealth;
         }
     }
 }
