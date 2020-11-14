@@ -145,5 +145,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  liveTime: 0.3
+  liveTimer: 0.6
   attackPower: 10

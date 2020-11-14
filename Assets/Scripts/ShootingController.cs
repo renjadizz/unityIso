@@ -5,7 +5,7 @@ using UnityEngine;
 abstract public class ShootingController : MonoBehaviour
 {
     public Transform skillShotPoint;
-    public GameObject skillShotPrefab;
+    public GameObjectPool gameObjectPool;
 
     public void Shoot(Vector2 skillShotDestination)
     {
@@ -14,9 +14,11 @@ abstract public class ShootingController : MonoBehaviour
         //Debug.DrawRay(playerScript.skillShotPointScript.transform.position, shootDir * 5f, Color.red);
         float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
         skillShotPoint.eulerAngles = new Vector3(0, 0, angle);
-
-        GameObject mySkillShot = Instantiate(skillShotPrefab, skillShotPoint.position, skillShotPoint.rotation);
-        Physics2D.IgnoreCollision(mySkillShot.GetComponent<BoxCollider2D>(), GetComponent<CapsuleCollider2D>());
-        mySkillShot.GetComponent<SkillShot>().Setup(shootDir);
+        var skillShot = gameObjectPool.Get();
+        skillShot.transform.position = skillShotPoint.position;
+        skillShot.transform.rotation = skillShotPoint.rotation;
+        skillShot.SetActive(true);
+        Physics2D.IgnoreCollision(skillShot.GetComponent<BoxCollider2D>(), GetComponent<CapsuleCollider2D>());
+        skillShot.GetComponent<SkillShot>().Setup(shootDir);
     }
 }
